@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+now = Time.now
+File.open("db/usernames.txt") { |f|
+    moniker_data = f.readlines.shuffle.map {|name| { name: name.strip, created_at: now, updated_at: now } }
+    Moniker.insert_all(moniker_data)   
+}

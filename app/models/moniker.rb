@@ -1,0 +1,2 @@
+class Moniker < ApplicationRecord
+end
