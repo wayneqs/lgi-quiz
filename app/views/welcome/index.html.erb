@@ -1,18 +1,16 @@
-<div class="jumbotron">
-  <h1 class="text-muted">Welcome!</h1>
-  <p>
-    Please select your Quiz Team:
-  </p>
-  <div class="row">
-    <div class="col-sm-3">
-      <%= button_to 'CHANGE', welcome_index_path, class: "btn btn-lg btn-success btn-block" %>
-    </div>
-    <div class="col-sm-3">
-      <%= button_to 'IT', welcome_index_path, class: "btn btn-lg btn-success btn-block" %>
-    </div>
+<div class="row mt-5 text-center">
+  <div class="col-lg-12">
+      <div class="row mb-4">
+          <div class="col">
+            <h1>Hello!</h1>
+            <p class="lead">Welcome to a short demo of cloud technologies in use in LGI.</p>
+            <p>Please click the button below to register for a short quiz covering the talks given by Prakash, Dave and Vijay (you can win prizes!)</p>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col actions">
+              <%= link_to "Register for the quiz", new_user_path, class: "btn btn-primary text-uppercase"%>
+          </div>
+      </div>
   </div>
-  <br/>
-  <p>
-    <strong>Note:</strong> You will be given a pseudonym after you have joined a team.
-  </p>
 </div>
