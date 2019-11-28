@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    skip_before_action :ensure_user_signed_up, except: [:destroy]
+
     def new
     end
 
@@ -14,6 +16,7 @@ class UsersController < ApplicationController
         session[:user_id] = nil
         @quiz.destroy if @quiz
         @user.destroy if @user
+        redirect_to welcome_path
     end
 
     private

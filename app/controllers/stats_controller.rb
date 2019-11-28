@@ -1,4 +1,6 @@
 class StatsController < ApplicationController
+  skip_before_action :ensure_user_signed_up
+  
   def index
     q = "users.id as user_id,
         users.name as username,
