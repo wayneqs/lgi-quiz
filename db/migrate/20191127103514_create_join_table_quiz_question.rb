@@ -1,6 +1,6 @@
 class CreateJoinTableQuizQuestion < ActiveRecord::Migration[6.0]
   def change
-    create_join_table :quizzes, :questions do |t|
+    create_join_table :quizzes, :questions, table_name: "quiz_questions" do |t|
       t.integer :order
       t.string :answer
       t.integer :score

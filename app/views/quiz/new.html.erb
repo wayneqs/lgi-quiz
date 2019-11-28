@@ -3,13 +3,13 @@
       <div class="row mb-4">
           <div class="col">
             <h1>Registered!</h1>
-            <p class="mt-4">Your username for the quiz is</p>
+            <p class="mt-4">Your <mark>username</mark> for the quiz is</p>
             <p class="h3"><%= @user.name %></p>
           </div>
       </div>
       <div class="row">
           <div class="col actions">
-              <%= link_to "Start the quiz", new_quiz_path, class: "btn btn-primary text-uppercase"%>
+              <%= button_to "Start the quiz", create_quiz_path, class: "btn btn-primary text-uppercase"%>
           </div>
       </div>
   </div>

@@ -36,14 +36,14 @@ ActiveRecord::Schema.define(version: 2019_11_27_103514) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "questions_quizzes", id: false, force: :cascade do |t|
+  create_table "quiz_questions", id: false, force: :cascade do |t|
     t.bigint "quiz_id", null: false
     t.bigint "question_id", null: false
     t.integer "order"
     t.string "answer"
     t.integer "score"
-    t.index ["question_id", "quiz_id"], name: "index_questions_quizzes_on_question_id_and_quiz_id"
-    t.index ["quiz_id", "question_id"], name: "index_questions_quizzes_on_quiz_id_and_question_id"
+    t.index ["question_id", "quiz_id"], name: "index_quiz_questions_on_question_id_and_quiz_id"
+    t.index ["quiz_id", "question_id"], name: "index_quiz_questions_on_quiz_id_and_question_id"
   end
 
   create_table "quizzes", force: :cascade do |t|
