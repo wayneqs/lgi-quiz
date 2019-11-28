@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_103514) do
 
   create_table "question_options", force: :cascade do |t|
     t.string "prompt"
-    t.integer "score"
+    t.integer "score", default: 0
     t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_103514) do
   create_table "quiz_questions", force: :cascade do |t|
     t.integer "order"
     t.string "answer"
-    t.integer "score"
+    t.integer "score", default: 0
     t.bigint "quiz_id", null: false
     t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2019_11_27_103514) do
   end
 
   create_table "quizzes", force: :cascade do |t|
-    t.integer "score"
-    t.integer "max_score"
+    t.integer "score", default: 0
+    t.integer "max_score", default: 0
     t.datetime "start_time"
     t.datetime "end_time"
     t.bigint "user_id", null: false

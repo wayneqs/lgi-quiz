@@ -1,5 +1,6 @@
 class QuizController < ApplicationController
     before_action :set_user
+    before_action :set_quiz, only: [:result]
 
     def new
     end
@@ -22,6 +23,10 @@ class QuizController < ApplicationController
 
     def set_user
         @user = User.find(session[:user_id])
+    end
+
+    def set_quiz
+        @quiz = Quiz.find_by_user_id(session[:user_id])
     end
 
     def create_quiz_questions

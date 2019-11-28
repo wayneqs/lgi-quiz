@@ -11,9 +11,12 @@ class QuizQuestionsController < ApplicationController
           redirect_to ask_question_path(next_quiz_question.question)
         else
             # no more questions so let's finish the quiz
+            # and mark it
             @quiz.end_time = Time.now unless @quiz.end_time
-            # and redirect to show the results
-            redirect_to quiz_result_path
+            @quiz.mark
+            if @quiz.save
+                redirect_to quiz_result_path
+            end
         end
     end
 
