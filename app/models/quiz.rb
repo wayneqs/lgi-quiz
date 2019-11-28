@@ -8,6 +8,7 @@ class Quiz < ApplicationRecord
   end
 
   def mark
+    reset_quiz
     quiz_questions.each {|qq|
       (score, max_score) = mark_question(qq)
       write_attribute(:score, read_attribute(:score) + score)
@@ -16,10 +17,16 @@ class Quiz < ApplicationRecord
   end
 
   def percent
+    return 0 if max_score == 0
     (score.fdiv(max_score) * 100).round(2)
   end
 
   private
+
+  def reset_quiz
+    write_attribute(:score, 0)
+    write_attribute(:max_score, 0)
+  end
 
   def mark_question(quiz_question)
     score = quiz_question.score

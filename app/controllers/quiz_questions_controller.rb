@@ -21,16 +21,14 @@ class QuizQuestionsController < ApplicationController
     end
 
     def ask
-        # @question_question is already set
+        # @quiz_question is already set
     end
 
     def answer
         @quiz_question.mark_answer(quiz_question_params[:answer])
-        if @quiz_question.save
-            redirect_to find_next_question_path
-        else
-            render :ask
-        end
+        @quiz_question.save
+        @quiz_question.quiz.save
+        redirect_to find_next_question_path
     end
 
     private

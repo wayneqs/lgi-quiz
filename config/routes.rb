@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   patch "questions/:id", to: "quiz_questions#answer", as: "answer_question"
 
   get "stats", to: "stats#index"
+  get 'charts/team_stats', to: 'charts#team_stats', as: 'team_stats_charts'
 end

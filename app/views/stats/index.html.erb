@@ -1,0 +1,92 @@
+<% if @user %>
+    <div class="row">
+        <div class="col-sm">
+            <div class="card shadow mb-3">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="small font-weight-bold text-danger text-uppercase mb-2">Your Name</div>
+                            <h5 class="font-weight-bold text-muted"><%= @user.name %></h5>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-id-card fa-3x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <div class="col-sm">
+            <div class="card shadow mb-3">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="small font-weight-bold text-primary text-uppercase mb-2">Your score</div>
+                            <h5 class="font-weight-bold text-muted"><%= @quiz.percent %>%</h5>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-certificate fa-3x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="col-sm">
+            <div class="card shadow mb-3">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="small font-weight-bold text-success text-uppercase mb-2">Position</div>
+                            <h5 class="font-weight-bold text-muted"><%= @place.ordinalize %> place</h5>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-award fa-3x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="small font-weight-bold text-info text-uppercase mb-2">Team Competition</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <%= column_chart team_stats_charts_path, xtitle: "Team", ytitle: "Total Score" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="small font-weight-bold text-warning text-uppercase mb-2">Leaderboard</div>
+                        <%= render partial: "leaderboard", object: @leaderboard %>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-star fa-3x"></i>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="font-weight-bold text-muted">
+                            Tests finished <%= @completed_test_count %><br/>
+                            Tests in-progress <%= @inprogress_test_count %>
+                        <p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
