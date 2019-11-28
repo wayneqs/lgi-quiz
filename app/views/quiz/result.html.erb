@@ -1,2 +1,18 @@
-<h1>You did well</h1>
-<p>You scored <%= @quiz.percent %>%</p>
+<div class="row mt-5 justify-content-md-center">
+    <div class="col-8 p-3 mb-5 bg-light rounded">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <div class="row mb-3">
+                    <%= image_tag 'logo.svg', size: "120x120", class: "mx-auto d-block" %>
+                </div>
+                <h3 class="text-muted">LGI <mark>Cloud Strategy</mark> Quiz</h3>
+            </div>
+            <div class="col-md-6 mt-4 text-center">
+                <p class="h3 mb-4">Great Job <%= @user.name %>!</p>
+                <p class="h6 mb-2 text-uppercase">You scored</p>
+                <p class="h2"><mark><%= @quiz.percent %>%</mark></p>
+                <%= link_to "Show Leaderboard", stats_path, class: "btn btn-primary text-uppercase mt-3"%>
+            </div>
+        </div>
+    </div>
+</div>
