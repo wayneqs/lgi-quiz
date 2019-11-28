@@ -1,1 +1,48 @@
-<h1><%= @quiz_question.question.prompt %></h1>
+
+<%= form_with model: @quiz_question, url: answer_question_path do |f| %>
+    <div class="row justify-content-md-center">
+        <div class="col-10 p-3 mb-5 bg-light rounded">
+            <div class="row">
+                <div class="col-md-5 text-center">
+                    <div class="row mb-3">
+                        <%= image_tag 'logo.svg', size: "120x120", class: "mx-auto d-block" %>
+                    </div>
+                    <h3>LGI <mark>Cloud Strategy</mark> Quiz</h3>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-secondary small mb-1"><%= @quiz_question.order %> of <%= @quiz.question_count %></p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h4><%= @quiz_question.question.prompt %></h4>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <% @quiz_question.question.question_options.each_with_index {|option, idx| %>
+                                <div class="row mb-2">
+                                    <div class="col-1">
+                                        <%= f.radio_button(:answer, option.prompt, 
+                                                class: class_string("mr-3" => true, "mt-1" => true),
+                                                checked: idx == 0) %>
+                                    </div>
+                                    <div class="col pl-0">
+                                        <%= f.label(:answer, option.prompt, :value => option.prompt ) %>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col actions">
+                            <%= f.submit "Next Question", class: "btn btn-primary"%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get "quiz/result", to: "quiz#result", as: "quiz_result"
   get "questions", to: "quiz_questions#find_next_question", as: "find_next_question"
   get "questions/:id", to: "quiz_questions#ask", as: "ask_question"
-  post "questions/:id", to: "quiz_questions#answer", as: "answer_question"
+  patch "questions/:id", to: "quiz_questions#answer", as: "answer_question"
 end

@@ -36,14 +36,16 @@ ActiveRecord::Schema.define(version: 2019_11_27_103514) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "quiz_questions", id: false, force: :cascade do |t|
-    t.bigint "quiz_id", null: false
-    t.bigint "question_id", null: false
+  create_table "quiz_questions", force: :cascade do |t|
     t.integer "order"
     t.string "answer"
     t.integer "score"
-    t.index ["question_id", "quiz_id"], name: "index_quiz_questions_on_question_id_and_quiz_id"
-    t.index ["quiz_id", "question_id"], name: "index_quiz_questions_on_quiz_id_and_question_id"
+    t.bigint "quiz_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_quiz_questions_on_question_id"
+    t.index ["quiz_id"], name: "index_quiz_questions_on_quiz_id"
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -65,5 +67,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_103514) do
   end
 
   add_foreign_key "question_options", "questions"
+  add_foreign_key "quiz_questions", "questions"
+  add_foreign_key "quiz_questions", "quizzes"
   add_foreign_key "quizzes", "users"
 end

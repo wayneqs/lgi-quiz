@@ -25,10 +25,13 @@ class QuizController < ApplicationController
     end
 
     def create_quiz_questions
+        now = Time.now
         Question.all.map.with_index {|question, idx|
             QuizQuestion.new(
                 question: question,
-                order: idx + 1
+                order: idx + 1,
+                created_at: now,
+                updated_at: now
             )
         }
     end

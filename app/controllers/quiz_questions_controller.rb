@@ -1,6 +1,7 @@
 class QuizQuestionsController < ApplicationController
     before_action :set_user
     before_action :set_quiz
+    before_action :set_quiz_question, only: [:ask, :answer]
 
     def find_next_question
         next_quiz_question = @quiz.quiz_questions.
@@ -17,13 +18,16 @@ class QuizQuestionsController < ApplicationController
     end
 
     def ask
-        @quiz_question = QuizQuestion.where(
-            question_id: params[:id],
-            quiz_id: @quiz.id
-        ).first
+        # @question_question is already set
     end
 
     def answer
+        @quiz_question.mark_answer(quiz_question_params[:answer])
+        if @quiz_question.save
+            redirect_to find_next_question_path
+        else
+            render :ask
+        end
     end
 
     private
@@ -34,6 +38,13 @@ class QuizQuestionsController < ApplicationController
 
     def set_quiz
         @quiz = Quiz.find_by_user_id(session[:user_id])
+    end
+
+    def set_quiz_question
+        @quiz_question = QuizQuestion.where(
+            quiz_id: @quiz.id,
+            question_id: params[:id]
+        ).first
     end
 
     def quiz_question_params
