@@ -6,10 +6,10 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="small font-weight-bold text-danger text-uppercase mb-2">Your Name</div>
-                            <h5 class="font-weight-bold text-muted"><%= @user.name %></h5>
+                            <h5 class="font-weight-bold"><%= @user.name %></h5>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-id-card fa-3x"></i>
+                            <i class="fas fa-id-card fa-3x text-danger"></i>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                             <h5 class="font-weight-bold text-muted"><%= @quiz.percent %>%</h5>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-certificate fa-3x"></i>
+                            <i class="fas fa-certificate fa-3x text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                             <h5 class="font-weight-bold text-muted"><%= @place.ordinalize %> place</h5>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-award fa-3x"></i>
+                            <i class="fas fa-award fa-3x text-success"></i>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
     </div>
 <% end %>
 <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8">
         <div class="card shadow mb-3">
             <div class="card-body">
                 <div class="row">
@@ -66,24 +66,20 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-md-4">
         <div class="card shadow mb-3">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="small font-weight-bold text-warning text-uppercase mb-2">Leaderboard</div>
                         <%= render partial: "leaderboard", object: @leaderboard %>
+                        <p class="font-weight-bold text-muted">
+                            <span class="h4"><%= @completed_test_count %></span> tests finished<br/>
+                            <span class="h4"><%= @inprogress_test_count %></span> tests in progress
+                        <p>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-star fa-3x"></i>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p class="font-weight-bold text-muted">
-                            Tests finished <%= @completed_test_count %><br/>
-                            Tests in-progress <%= @inprogress_test_count %>
-                        <p>
+                        <i class="fas fa-star fa-3x text-warning"></i>
                     </div>
                 </div>
             </div>
