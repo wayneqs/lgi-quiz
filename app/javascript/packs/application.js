@@ -14,3 +14,6 @@ global.$ = global.jQuery = jQuery;
 window.$ = window.jQuery = jQuery;
 
 require('bootstrap');
+
+require("chartkick")
+require("chart.js")
