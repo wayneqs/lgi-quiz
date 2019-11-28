@@ -1,6 +1,4 @@
 class QuizQuestionsController < ApplicationController
-    before_action :set_user
-    before_action :set_quiz
     before_action :set_quiz_question, only: [:ask, :answer]
 
     def find_next_question
@@ -32,14 +30,6 @@ class QuizQuestionsController < ApplicationController
     end
 
     private
-
-    def set_user
-        @user = User.find(session[:user_id])
-    end
-
-    def set_quiz
-        @quiz = Quiz.find_by_user_id(session[:user_id])
-    end
 
     def set_quiz_question
         @quiz_question = QuizQuestion.where(

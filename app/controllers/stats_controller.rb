@@ -1,7 +1,4 @@
 class StatsController < ApplicationController
-  before_action :set_user
-  before_action :set_quiz
-
   def index
     q = "users.id as user_id,
         users.name as username,
@@ -17,15 +14,5 @@ class StatsController < ApplicationController
     @leaderboard = results.take(7).map { |result| result.username }
     @completed_test_count = Quiz.where("end_time is not null").count
     @inprogress_test_count = Quiz.all.count - @completed_test_count
-  end
-
-  private
-
-  def set_user
-    @user = User.find_by_id(session[:user_id])
-  end
-
-  def set_quiz
-    @quiz = Quiz.find_by_user_id(session[:user_id])
   end
 end

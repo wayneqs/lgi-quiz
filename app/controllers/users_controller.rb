@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:destroy]
-
     def new
     end
 
@@ -14,14 +12,11 @@ class UsersController < ApplicationController
 
     def destroy
         session[:user_id] = nil
-        @user.destroy
+        @quiz.destroy if @quiz
+        @user.destroy if @user
     end
 
     private
-
-    def set_user
-        @user = User.find(session[:user_id])
-    end
 
     def create_user(team)
         User.transaction do
