@@ -1,13 +1,19 @@
 <% if leaders.any?  %>
-    <ul class="list-unstyled">
-        <% leaders.each_with_index { |leader, idx| %>
-                <li class="font-weight-bold text-muted">
-                    <h5>
-                        <%= (idx + 1).ordinalize %> <small><%= leader %></small>
-                    </h5>
-                </li>
-        <% } %>
-    </ul>
+    <div class="row">
+        <% leaders.each_with_index do |leader, idx| %>
+            <% if idx < 3 %>
+                <div class="col-12 font-weight-bold">
+                    <%= (idx + 1).ordinalize %> 
+                    <%= leader %>
+                </div>
+            <% else %>
+                <div class="col-12">
+                    <%= (idx + 1).ordinalize %> 
+                    <%= leader %>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
 <% else %>
     <div class="no-leaders">
         No-one appears to be started the quiz yet!
