@@ -1,34 +1,33 @@
-<div class="row">
-    <% if @user %>
-    <div class="col-sm">
-        <div class="card shadow mb-3">
-            <div class="card-body">
-                <div class="small font-weight-bold text-danger text-uppercase mb-2">Your Name</div>
-                <h5 class="font-weight-bold"><%= @user.name %></h5>
+<% if @user %>
+    <div class="row">
+        <div class="col-sm">
+            <div class="card shadow mb-3">
+                <div class="card-body">
+                    <div class="small font-weight-bold text-danger text-uppercase mb-2">Your Name</div>
+                    <h5 class="font-weight-bold"><%= @user.name %></h5>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm">
-        <div class="card shadow mb-3">
-            <div class="card-body">
-                <div class="small font-weight-bold text-primary text-uppercase mb-2">Your score</div>
-                <h5 class="font-weight-bold"><%= @quiz.percent %>%</h5>
+        <div class="col-sm">
+            <div class="card shadow mb-3">
+                <div class="card-body">
+                    <div class="small font-weight-bold text-primary text-uppercase mb-2">Your score</div>
+                    <h5 class="font-weight-bold"><%= @quiz.percent %>%</h5>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm">
-        <div class="card shadow mb-3">
-            <div class="card-body">
-                <div class="small font-weight-bold text-success text-uppercase mb-2">Position</div>
-                <div>
-                    <h5 class="font-weight-bold"><%= @user_place %> place</h5>
+        <div class="col-sm">
+            <div class="card shadow mb-3">
+                <div class="card-body">
+                    <div class="small font-weight-bold text-success text-uppercase mb-2">Position</div>
+                    <div>
+                        <h5 class="font-weight-bold"><%= @user_place %> place</h5>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <% end %>
-</div>
-
+<% end %>
 <div class="row">
      <div class="col-md-7 col-lg-8">
         <div class="card shadow mb-3">
