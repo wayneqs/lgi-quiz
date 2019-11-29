@@ -1,7 +1,6 @@
-<% if @leaderboard.any?  %>
+<% if @stats.leaderboard.any?  %>
     <ul class="list-unstyled">
-        <% @leaderboard.each_with_index { |leader, idx| %>
-            
+        <% @stats.leaderboard.each_with_index { |leader, idx| %>
                 <li class="font-weight-bold text-muted">
                     <h5>
                         <%= (idx + 1).ordinalize %> <small><%= leader %></small>

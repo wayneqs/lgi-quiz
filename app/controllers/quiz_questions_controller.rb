@@ -23,10 +23,17 @@ class QuizQuestionsController < ApplicationController
     end
 
     def answer
-        @quiz_question.mark_answer(quiz_question_params[:answer])
-        @quiz_question.save
-        @quiz_question.quiz.save
-        redirect_to find_next_question_path
+        respond_to do |format|
+            @quiz_question.mark_answer(quiz_question_params[:answer])
+            @quiz_question.save
+            @quiz_question.quiz.save
+            
+            format.html { redirect_to find_next_question_path }
+
+            # @stats = Statistics.new(@user).compute
+            # ActionCable.server.broadcast "statistics",
+            #     html: render_to_string("stats/index", layout: false)           
+        end
     end
 
     private

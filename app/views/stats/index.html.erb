@@ -38,7 +38,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="small font-weight-bold text-success text-uppercase mb-2">Position</div>
-                            <h5 class="font-weight-bold text-muted"><%= @place.ordinalize %> place</h5>
+                            <h5 class="font-weight-bold text-muted"><%= @stats.user_position.ordinalize %> place</h5>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-award fa-3x text-success"></i>
@@ -72,10 +72,10 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="small font-weight-bold text-warning text-uppercase mb-2">Leaderboard</div>
-                        <%= render partial: "leaderboard", object: @leaderboard %>
+                        <%= render partial: "leaderboard", object: @stats.leaderboard %>
                         <p class="font-weight-bold text-muted">
-                            <span class="h4"><%= @completed_test_count %></span> tests finished<br/>
-                            <span class="h4"><%= @inprogress_test_count %></span> tests in progress
+                            <span class="h4"><%= @stats.completed_quizzes %></span> quizzes finished<br/>
+                            <span class="h4"><%= @stats.inprogress_quizzes %></span> quizzes in progress
                         <p>
                     </div>
                     <div class="col-auto">
