@@ -10,6 +10,9 @@ consumer.subscriptions.create("LeaderboardChannel", {
   },
 
   received(data) {
-    document.getElementById("leaderboard").innerHTML = data.html;
+    var leaderBoard = document.getElementById("leaderboard");
+    if (leaderBoard != null) {
+      leaderBoard.innerHTML = data.html;
+    }
   }
 });

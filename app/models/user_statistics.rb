@@ -1,4 +1,4 @@
-class Leaderboard
+class UserStatistics
     def initialize(this_many = 7)
         @this_many = this_many
         @leaders = []
@@ -21,6 +21,7 @@ class Leaderboard
 
     def find_place(user_id)
         compute unless @results # prefer cached
-        (@results.map(&:user_id).index(user_id) + 1).ordinalize
+        idx = @results.map(&:user_id).index(user_id)
+        (idx + 1).ordinalize if idx
     end
 end

@@ -2,18 +2,19 @@ class QuizQuestionsController < ApplicationController
     before_action :set_quiz_question, only: [:ask, :answer]
 
     def find_next_question
-        next_quiz_question = @quiz.quiz_questions.
-                                order(order: :asc)
-                                .detect { |qq| qq.answer.nil? }
-        if next_quiz_question
-          redirect_to ask_question_path(next_quiz_question.question)
-        else
-            # no more questions so let's finish the quiz
-            # and mark it
-            @quiz.end_time = Time.now unless @quiz.end_time
-            @quiz.mark
-            if @quiz.save
-                redirect_to quiz_result_path
+        respond_to do |format|
+            next_quiz_question = @quiz.quiz_questions.
+                                    order(order: :asc)
+                                    .detect { |qq| qq.answer.nil? }
+            if next_quiz_question
+                format.html { redirect_to ask_question_path(next_quiz_question.question) }
+            else
+                # no more questions so let's finish the quiz and mark it
+                @quiz.end_time = Time.now unless @quiz.end_time
+                @quiz.mark
+                if @quiz.save
+                    format.html { redirect_to quiz_result_path }
+                end
             end
         end
     end
@@ -30,8 +31,8 @@ class QuizQuestionsController < ApplicationController
             
             format.html { redirect_to find_next_question_path }
 
-            @leaderboard = Leaderboard.new.compute
-            StatisticsChannel.broadcast_leaderboard(@leaderboard.leaders)           
+            user_stats = UserStatistics.new.compute
+            StatisticsChannel.broadcast_leaderboard(user_stats.leaders)           
         end
     end
 

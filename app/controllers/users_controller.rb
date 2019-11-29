@@ -20,8 +20,8 @@ class UsersController < ApplicationController
 
             format.html { redirect_to welcome_path }
 
-            @stats = Statistics.new(@user).compute
-            LeaderboardChannel.broadcast_leaderboard(@stats.leaderboard.leaders)
+            user_stats = UserStatistics.new.compute
+            LeaderboardChannel.broadcast_leaderboard(user_stats.leaders)
         end
     end
 

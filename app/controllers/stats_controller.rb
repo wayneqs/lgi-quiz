@@ -2,6 +2,8 @@ class StatsController < ApplicationController
   skip_before_action :ensure_user_signed_up
   
   def index
-    @stats = Statistics.new(@user).compute
+    @user_stats = UserStatistics.new.compute
+    @user_place = @user_stats.find_place(@user.id)
+    @quiz_stats = QuizStatistics.new.compute
   end
 end
