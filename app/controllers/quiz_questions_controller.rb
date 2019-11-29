@@ -30,9 +30,8 @@ class QuizQuestionsController < ApplicationController
             
             format.html { redirect_to find_next_question_path }
 
-            # @stats = Statistics.new(@user).compute
-            # ActionCable.server.broadcast "statistics",
-            #     html: render_to_string("stats/index", layout: false)           
+            @leaderboard = Leaderboard.new.compute
+            StatisticsChannel.broadcast_leaderboard(@leaderboard.leaders)           
         end
     end
 

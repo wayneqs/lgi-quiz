@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("StatisticsChannel", {
+consumer.subscriptions.create("LeaderboardChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
   },
@@ -10,6 +10,6 @@ consumer.subscriptions.create("StatisticsChannel", {
   },
 
   received(data) {
-    document.getElementsByTagName("main")[0].innerHTML = data.html
+    document.getElementById("leaderboard").innerHTML = data.html;
   }
 });

@@ -4,14 +4,20 @@ class QuizController < ApplicationController
     end
 
     def create
-        QuizQuestion.transaction do
-            quiz = Quiz.create(
-                start_time: Time.now,
-                user: @user
-            )
-            quiz.quiz_questions = create_quiz_questions
+        respond_to do |format|
+            QuizQuestion.transaction do
+                quiz = Quiz.create(
+                    start_time: Time.now,
+                    user: @user
+                )
+                quiz.quiz_questions = create_quiz_questions
+            end
+            
+            format.html { redirect_to find_next_question_path }
+
+            @stats = Statistics.new(@user).compute
+            LeaderboardChannel.broadcast_leaderboard(@stats.leaderboard.leaders)
         end
-        redirect_to find_next_question_path
     end
 
     def result

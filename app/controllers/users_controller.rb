@@ -13,21 +13,29 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        session[:user_id] = nil
-        @quiz.destroy if @quiz
-        @user.destroy if @user
-        redirect_to welcome_path
+        respond_to do |format|
+            session[:user_id] = nil
+            @quiz.destroy if @quiz
+            @user.destroy if @user
+
+            format.html { redirect_to welcome_path }
+
+            @stats = Statistics.new(@user).compute
+            LeaderboardChannel.broadcast_leaderboard(@stats.leaderboard.leaders)
+        end
     end
 
     private
 
     def create_user(team)
-        User.transaction do
-            @user = User.create(team: team)
-            session[:user_id] = @user.id
-            @user.name = Moniker.find(@user.id).name
-            if @user.save
-                redirect_to new_quiz_path
+        respond_to do |format|
+            User.transaction do
+                @user = User.create(team: team)
+                session[:user_id] = @user.id
+                @user.name = Moniker.find(@user.id).name
+                if @user.save
+                    format.html { redirect_to new_quiz_path }
+                end
             end
         end
     end
