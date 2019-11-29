@@ -1,56 +1,36 @@
-<% if @user %>
-    <div class="row">
-        <div class="col-sm">
-            <div class="card shadow mb-3">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="small font-weight-bold text-danger text-uppercase mb-2">Your Name</div>
-                            <h5 class="font-weight-bold"><%= @user.name %></h5>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-id-card fa-3x text-danger"></i>
-                        </div>
-                    </div>
-                </div>
+<div class="row">
+    <% if @user %>
+    <div class="col-sm">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <div class="small font-weight-bold text-danger text-uppercase mb-2">Your Name</div>
+                <h5 class="font-weight-bold"><%= @user.name %></h5>
             </div>
         </div>
-        
-         <div class="col-sm">
-            <div class="card shadow mb-3">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="small font-weight-bold text-primary text-uppercase mb-2">Your score</div>
-                            <h5 class="font-weight-bold text-muted"><%= @quiz.percent %>%</h5>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-certificate fa-3x text-primary"></i>
-                        </div>
-                    </div>
-                </div>
+    </div>
+    <div class="col-sm">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <div class="small font-weight-bold text-primary text-uppercase mb-2">Your score</div>
+                <h5 class="font-weight-bold text-muted"><%= @quiz.percent %>%</h5>
             </div>
         </div>
-
-         <div class="col-sm">
-            <div class="card shadow mb-3">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="small font-weight-bold text-success text-uppercase mb-2">Position</div>
-                            <h5 class="font-weight-bold text-muted"><%= @user_place %> place</h5>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-award fa-3x text-success"></i>
-                        </div>
-                    </div>
+    </div>
+    <div class="col-sm">
+        <div class="card shadow mb-3">
+            <div class="card-body">
+                <div class="small font-weight-bold text-success text-uppercase mb-2">Position</div>
+                <div>
+                    <h5 class="font-weight-bold text-muted"><%= @user_place %> place</h5>
                 </div>
             </div>
         </div>
     </div>
-<% end %>
+    <% end %>
+</div>
+
 <div class="row">
-    <div class="col-md-8">
+     <div class="col-md-8 col-lg-9">
         <div class="card shadow mb-3">
             <div class="card-body">
                 <div class="row">
@@ -66,22 +46,26 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card shadow mb-3">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
+    <div class="col-md-4 col-lg-3">
+         <div class="row">
+            <div class="col-sm">
+                <div class="card shadow mb-3">
+                    <div class="card-body">
                         <div class="small font-weight-bold text-warning text-uppercase mb-2">Leaderboard</div>
                         <div id="leaderboard">
                             <%= render partial: "stats/leaderboard", locals: {leaders: @user_stats.leaders} %>
                         </div>
-                        <p class="font-weight-bold text-muted">
-                            <span class="h4"><%= @quiz_stats.completed_quizzes %></span> quizzes finished<br/>
-                            <span class="h4"><%= @quiz_stats.inprogress_quizzes %></span> quizzes in progress
-                        <p>
                     </div>
-                    <div class="col-auto">
-                        <i class="fas fa-star fa-3x text-warning"></i>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-sm">
+                <div class="card shadow mb-3">
+                    <div class="card-body">
+                        <div class="small font-weight-bold text-info text-uppercase mb-2">Quizzing</div>
+                        <div id="quiz-stats">
+                            <%= render partial: "stats/quiz_stats", locals: {stats: @quiz_stats} %>
+                        </div>
                     </div>
                 </div>
             </div>
