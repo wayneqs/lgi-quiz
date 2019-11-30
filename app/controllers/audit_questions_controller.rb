@@ -2,6 +2,12 @@ class AuditQuestionsController < ApplicationController
     skip_before_action :ensure_user_signed_up
     skip_before_action :set_quiz
 
+    def index
+        respond_to do |format|
+            format.html { redirect_to audit_question_path(id: 1) }
+        end
+    end
+
     def show
         respond_to do |format|
             @ordinal = params[:id].to_i

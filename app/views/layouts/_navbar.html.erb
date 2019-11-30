@@ -17,12 +17,20 @@
             <li class="nav-item small text-uppercase <%= active_if_on([stats_path]) %>">
                 <%= link_to 'Leaderboard', stats_path, class: "nav-link"%>
             </li>
-            <li class="nav-item small text-uppercase <%= active_if_on([new_user_path]) %>">
-                <%= link_to 'Audit Quiz', audit_question_path(id: 1), class: "nav-link"%>
+            <li class="nav-item small text-uppercase <%= active_if_on([audit_path]) %>">
+                <%= link_to 'Audit Quiz', audit_path, class: "nav-link"%>
             </li>
         </ul>
 
         <ul class="navbar-nav">
+            <% if @user && @user.is_admin %>
+                <li class="nav-item small text-uppercase">
+                    <%= link_to 'Detect Winners', 
+                        audit_question_path(id: 1),
+                        data: { confirm: "Are you sure you want to do this?"},
+                        class: "nav-link"%>
+                </li>
+            <% end %>
             <% if @user %>
                 <li class="nav-item small text-uppercase ">
                     <%= link_to "Delete User",

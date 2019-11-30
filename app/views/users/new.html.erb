@@ -1,26 +1,69 @@
-<div class="row text-center justify-content-sm-center">
-  <div class="col-sm-7">
-    <h1>Hello!</h1>
-    <p class="lead">Welcome to the LGI Cloud Strategy quiz</p>
-    <p>Please join one of the teams to take part in a short quiz covering the 
-    material given by <mark>Prakash</mark>, <mark>Dave</mark> and <mark>Vijay</mark></p>
-  </div>
-</div>
-<div class="row text-center mb-4">
-    <div class="col-sm-12">
-        <h3 class="text-uppercase">Please choose your side</h3>
+<% if flash[:alert] %>
+    <aside class="notice"><%= flash[:alert] %></aside>
+<% end %>
+
+<ul class="nav nav-tabs justify-content-center mb-4" id="userNavTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="true">Sign Up</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="false">Sign In</a>
+  </li>
+</ul>
+
+<div class="tab-content" id="signupTab">
+    <div class="tab-pane fade show active" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+        
+        <div class="row text-center justify-content-sm-center">
+            <div class="col-sm-7">
+                <h1>Hello!</h1>
+                <p class="lead">Welcome to the LGI Cloud Strategy quiz</p>
+                <p>Please join one of the teams to take part in a short quiz covering the 
+                material given by <mark>Prakash</mark>, <mark>Dave</mark> and <mark>Vijay</mark></p>
+            </div>
+        </div>
+
+        <div class="row text-center mb-4">
+            <div class="col-sm-12">
+                <h3 class="text-uppercase">Please choose your side</h3>
+            </div>
+        </div>
+
+        <div class="row justify-content-sm-center">
+            <div class="col-sm-4 mb-2">
+                <%= button_to 'CHANGE', create_change_user_path, class: "btn btn-lg btn-primary btn-block" %>
+            </div>
+            <div class="col-sm-4 mb-2">
+                <%= button_to 'IT', create_it_user_path, class: "btn btn-lg btn-primary btn-block" %>
+            </div>
+        </div>
+
+        <div class="row text-center mt-4">
+            <div class="col-sm-12 text-muted">
+                <p>Prizes will be awarded to the brainiest</p>
+            </div>
+        </div>
+
     </div>
-</div>
-<div class="row justify-content-sm-center">
-    <div class="col-sm-4 mb-2">
-        <%= button_to 'CHANGE', create_change_user_path, class: "btn btn-lg btn-primary btn-block" %>
-    </div>
-    <div class="col-sm-4 mb-2">
-        <%= button_to 'IT', create_it_user_path, class: "btn btn-lg btn-primary btn-block" %>
-    </div>
-</div>
-<div class="row text-center mt-4">
-    <div class="col-sm-12 text-muted">
-        <p>Prizes will be awarded to the brainiest</p>
+    <div class="tab-pane fade" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+
+        <%= form_with model: @user, url: user_signin_path do |f| %>
+            <div class="row text-center justify-content-sm-center mb-4">
+                <div class="col-sm-7">
+                    <span>If you have been given a code, please enter it here<span>
+                </div>
+            </div>
+            <div class="row text-center justify-content-sm-center mb-4">
+                <div class="col-sm-7">
+                    <%= f.password_field :name, size: 9, placeholder: "Enter code" %>
+                </div>
+            </div>
+            <div class="row text-center justify-content-sm-center">
+                <div class="col-sm-7">
+                    <%= f.submit "Sign In", class: "btn btn-primary" %>
+                </div>
+            </div>
+        <% end %>
+    
     </div>
 </div>

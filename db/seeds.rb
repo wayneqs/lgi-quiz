@@ -7,3 +7,6 @@ File.open("db/usernames.txt") { |f|
 # load the questions
 require_relative 'the_questions'
 TheQuestions.new.questions.each { |question| Question.create(question) }
+
+# load the admin user
+User.create(name: "XYZ@987", is_admin: true)

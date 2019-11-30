@@ -1,2 +1,14 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.notice,
+#notice {
+  background: rgb(247, 211, 209);
+  border-radius: 0.5em;
+  border: solid 0.177em rgb(128, 5, 5);
+  color: rgb(114, 27, 5);
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding: 1em 1.414em;
+  text-align: center;
+}
