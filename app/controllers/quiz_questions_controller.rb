@@ -14,7 +14,7 @@ class QuizQuestionsController < ApplicationController
                 @quiz.mark
                 if @quiz.save
                     format.html { redirect_to quiz_result_path }
-                    helpers.broadcast_quiz_stats
+                    helpers.broadcast_quiz_info
                 end
             end
         end

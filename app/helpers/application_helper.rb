@@ -7,9 +7,9 @@ module ApplicationHelper
         "active" if pages.any? {|p| current_page?(p)}
     end
 
-    def broadcast_quiz_stats
+    def broadcast_quiz_info
         quiz_stats = QuizStatistics.new.compute
-        QuizStatisticsChannel.broadcast_quiz_stats(quiz_stats)
+        QuizStatisticsChannel.broadcast_stats(quiz_stats)
     end
 
     def broadcast_user_stats
@@ -18,5 +18,6 @@ module ApplicationHelper
     end
 
     def broadcast_team_stats
+        TeamStatisticsChannel.broadcast_stats()
     end
 end

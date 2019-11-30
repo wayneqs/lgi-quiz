@@ -21,7 +21,8 @@ class UsersController < ApplicationController
             format.html { redirect_to welcome_path }
 
             helpers.broadcast_user_stats
-            helpers.broadcast_quiz_stats
+            helpers.broadcast_quiz_info
+            helpers.broadcast_team_stats
         end
     end
 
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
                 @user.name = Moniker.find(@user.id).name
                 if @user.save
                     format.html { redirect_to new_quiz_path }
+                    helpers.broadcast_quiz_info
                 end
             end
         end

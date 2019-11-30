@@ -39,7 +39,9 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <%= column_chart team_stats_charts_path, xtitle: "Team", ytitle: "Total Score" %>
+                        <div id="team-stats">
+                            <%= render partial: "stats/team_stats" %>
+                        </div>
                     </div>
                 </div>
             </div>
