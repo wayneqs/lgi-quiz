@@ -1,13 +1,5 @@
 class QuizController < ApplicationController
 
-    def toggle_audit_mode
-        respond_to do |format|
-            session[:audit_mode] = false unless session[:audit_mode] 
-            session[:audit_mode] = !session[:audit_mode]
-            format.html { redirect_to find_next_question_path }
-        end
-    end
-
     def new
     end
 

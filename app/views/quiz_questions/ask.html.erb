@@ -16,7 +16,7 @@
                 <div class="col-sm-12 col-md-7">
                     <div class="row">
                         <div class="col">
-                            <p class="text-secondary small mb-1"><%= @quiz_question.order %> of <%= @quiz.question_count %></p>
+                            <p class="text-warning mb-1"><%= @quiz_question.order %> of <%= @quiz.question_count %></p>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -26,18 +26,21 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col">
-                            <% @quiz_question.question.question_options.each_with_index {|option, idx| %>
-                                <div class="row mb-2">
-                                    <div class="col-1">
-                                        <%= f.radio_button(:answer, option.prompt, 
-                                                class: class_string("mr-3" => true, "mt-1" => true),
-                                                checked: idx == 0) %>
-                                    </div>
-                                    <div class="col pl-0">
-                                        <%= f.label(:answer, option.prompt, :value => option.prompt ) %>
-                                    </div>
-                                </div>
-                            <% } %>
+                            <ol type="A">
+                                <% @quiz_question.question.question_options.each_with_index do |option, idx| %>
+                                    <li class="mb-3">
+                                        <div class="row ml-2">
+                                            <div class="col-s-auto text-nowrap">
+                                                <%= f.radio_button(:answer, option.prompt, 
+                                                        checked: idx == 0) %>
+                                            </div>
+                                            <div class="col pl-2">
+                                                <%= f.label(:answer, option.prompt, :value => option.prompt ) %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <% end %>
+                            </ol>
                         </div>
                     </div>
                     <div class="row">

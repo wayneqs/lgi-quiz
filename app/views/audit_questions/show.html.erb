@@ -1,0 +1,52 @@
+
+<div class="row justify-content-sm-center">
+    <div class="col-sm-10 col-md-10 p-3 mb-5 bg-secondary text-white rounded-lg shadow-lg">
+        <div class="row">
+            <div class="col-sm-12 col-md-5 text-center mb-3">
+                <div class="row mb-3">
+                    <%= image_tag 'logo.svg', size: "150x150", class: "mx-auto d-block" %>
+                </div>
+                <h4 class="text-warning text-uppercase">Audit Mode</h4>
+                <h3>
+                    <span class="small">LGI</span><br/>
+                    Cloud Strategy<br/>
+                    <span class="small">Quiz</span>
+                </h3>
+            </div>
+            <div class="col-sm-12 col-md-7">
+                <div class="row">
+                    <div class="col">
+                        <p class="text-warning mb-1"><%= @ordinal %> of <%= @count %></p>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <h4><%= @question.prompt %></h4>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <ol type="A">
+                            <% @question.question_options.each_with_index do |option, idx| %>
+                                <li class="mb-3 pl-2">
+                                    <%= option.prompt %>
+                                </li>
+                            <% end %>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col actions">
+                    <%= link_to "Previous Question",
+                            audit_question_path(id: @previous), 
+                            class: class_string("btn btn-primary"=>true, "disabled"=>@previous_disabled) %>
+
+                        <%= link_to "Next Question", 
+                            audit_question_path(id: @next), 
+                            class: class_string("btn btn-primary"=>true, "disabled"=>@next_disabled) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
