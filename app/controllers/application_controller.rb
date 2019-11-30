@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     end
 
     def set_quiz
-        @quiz = Quiz.find_by_user_id(session[:user_id])
+        @quiz = Quiz.includes(:quiz_questions).find_by_user_id(session[:user_id])
     end
 
     def ensure_user_signed_up

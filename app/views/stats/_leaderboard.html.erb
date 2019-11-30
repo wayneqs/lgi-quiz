@@ -1,17 +1,12 @@
 <% if leaders.any?  %>
     <div class="row">
         <% leaders.each_with_index do |leader, idx| %>
-            <% if idx < 3 %>
-                <div class="col-12 font-weight-bold">
-                    <%= (idx + 1).ordinalize %> 
-                    <%= leader %>
-                </div>
-            <% else %>
-                <div class="col-12">
-                    <%= (idx + 1).ordinalize %> 
-                    <%= leader %>
-                </div>
-            <% end %>
+            <div class='<%= class_string("col-12"=>true, "font-weight-bold"=>idx < 3) %>'>
+                <div class="row">
+                    <div class="col-1 mr-1 text-nowrap"><%= (idx + 1).ordinalize %></div>
+                    <div class="col"><%= leader %></div>
+                </div> 
+            </div>
         <% end %>
     </div>
 <% else %>

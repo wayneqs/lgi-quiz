@@ -9,5 +9,6 @@ class CreateQuizzes < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :quizzes, :end_time
   end
 end
