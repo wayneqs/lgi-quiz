@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_11_27_103514) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["end_time"], name: "index_quizzes_on_end_time"
     t.index ["user_id"], name: "index_quizzes_on_user_id"
   end
 
