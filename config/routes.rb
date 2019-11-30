@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "quiz/new", to: "quiz#new", as: "new_quiz"
   post "quiz/create", to: "quiz#create", as: "create_quiz"
   get "quiz/result", to: "quiz#result", as: "quiz_result"
+  post "quiz/toggle_audit_mode", to: "quiz#toggle_audit_mode", as: "toggle_audit_mode"
 
   get "questions", to: "quiz_questions#find_next_question", as: "find_next_question"
   get "questions/:id", to: "quiz_questions#ask", as: "ask_question"
