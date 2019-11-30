@@ -1,16 +1,16 @@
 class QuizStatistics
-    attr_reader :completed, :remaining, :competitors
+    attr_reader :complete, :incomplete, :competitors
     
     def compute
         quiz_stats = Quiz.connection
                         .select_all("select 
                                         count(users.id) as competitors,
-                                        count(end_time) as completed, 
+                                        count(end_time) as complete, 
                                         count(quizzes.id) as all 
                                     from users left outer join quizzes 
                                         on users.id = quizzes.user_id;").to_a
-        @completed = quiz_stats[0]["completed"]
-        @remaining = quiz_stats[0]["all"] - @completed
+        @complete = quiz_stats[0]["complete"]
+        @incomplete = quiz_stats[0]["all"] - @complete
         @competitors = quiz_stats[0]["competitors"]
         self
     end
