@@ -16,6 +16,7 @@ class QuizController < ApplicationController
             format.html { redirect_to find_next_question_path }
 
             helpers.broadcast_quiz_info
+            helpers.broadcast_user_stats
         end
     end
 

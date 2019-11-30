@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
     def ensure_user_signed_up
         if @user.nil?
-            redirect_to welcome_path
+            redirect_to new_user_path
         end
     end
 end

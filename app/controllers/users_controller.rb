@@ -18,7 +18,7 @@ class UsersController < ApplicationController
             @quiz.destroy if @quiz
             @user.destroy if @user
 
-            format.html { redirect_to welcome_path }
+            format.html { redirect_to new_user_path }
 
             helpers.broadcast_user_stats
             helpers.broadcast_quiz_info
