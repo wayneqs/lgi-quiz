@@ -31,7 +31,7 @@
                         class: "nav-link"%>
                 </li>
             <% end %>
-            <% if @user %>
+            <% if @user && @user.is_admin == false %>
                 <li class="nav-item small text-uppercase ">
                     <%= link_to "Delete User",
                         destroy_user_path,
