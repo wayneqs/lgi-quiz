@@ -10,9 +10,11 @@
   </head>
 
   <body>
-    <%= render partial: "/layouts/navbar" %>  
-    <main class='<%= controller.controller_name %>'>
-      <%= yield %>
-    </main>
+    <div class="container-fluid">
+      <%= render partial: "/layouts/navbar" %>  
+      <main class='<%= controller.controller_name %>'>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
