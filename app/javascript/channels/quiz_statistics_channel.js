@@ -10,7 +10,7 @@ consumer.subscriptions.create("QuizStatisticsChannel", {
   },
 
   received(data) {
-    var el = document.getElementById("quiz_stats");
+    var el = document.getElementById("quiz-stats");
     if (el != null) {
       el.innerHTML = data.html;
     }

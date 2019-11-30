@@ -14,6 +14,7 @@ class QuizQuestionsController < ApplicationController
                 @quiz.mark
                 if @quiz.save
                     format.html { redirect_to quiz_result_path }
+                    helpers.broadcast_quiz_stats
                 end
             end
         end
@@ -31,8 +32,8 @@ class QuizQuestionsController < ApplicationController
             
             format.html { redirect_to find_next_question_path }
 
-            user_stats = UserStatistics.new.compute
-            StatisticsChannel.broadcast_leaderboard(user_stats.leaders)           
+            helpers.broadcast_user_stats
+            helpers.broadcast_team_stats
         end
     end
 

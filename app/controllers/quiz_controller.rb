@@ -15,8 +15,7 @@ class QuizController < ApplicationController
             
             format.html { redirect_to find_next_question_path }
 
-            user_stats = UserStatistics.new.compute
-            LeaderboardChannel.broadcast_leaderboard(user_stats.leaders)
+            helpers.broadcast_quiz_stats
         end
     end
 

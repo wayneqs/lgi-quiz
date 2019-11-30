@@ -3,7 +3,7 @@ class StatsController < ApplicationController
   
   def index
     @user_stats = UserStatistics.new.compute
-    @user_place = @user_stats.find_place(@user.id)
+    @user_place = @user_stats.find_place(@user.id) if @user
     @quiz_stats = QuizStatistics.new.compute
   end
 end

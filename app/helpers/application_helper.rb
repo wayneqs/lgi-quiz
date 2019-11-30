@@ -6,4 +6,17 @@ module ApplicationHelper
     def active_if_on(pages)
         "active" if pages.any? {|p| current_page?(p)}
     end
+
+    def broadcast_quiz_stats
+        quiz_stats = QuizStatistics.new.compute
+        QuizStatisticsChannel.broadcast_quiz_stats(quiz_stats)
+    end
+
+    def broadcast_user_stats
+        user_stats = UserStatistics.new.compute
+        LeaderboardChannel.broadcast_leaderboard(user_stats.leaders)
+    end
+
+    def broadcast_team_stats
+    end
 end
