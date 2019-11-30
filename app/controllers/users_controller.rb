@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     def signin
         respond_to do |format|
-            @user = User.find_by_name(user_params[:code])
+            @user = User.find_by_name(params[:code])
             if @user
                 session[:user_id] = @user.id
                 format.html { redirect_to stats_path }
@@ -53,9 +53,5 @@ class UsersController < ApplicationController
                 end
             end
         end
-    end
-
-    def user_params
-        params.fetch(:user, {}).permit(:code, :team)
     end
 end
