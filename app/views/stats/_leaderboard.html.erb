@@ -1,10 +1,10 @@
 <% if leaders.any?  %>
     <div class="row">
-        <% leaders.each_with_index do |leader, idx| %>
-            <div class='<%= class_string("col-12"=>true, "font-weight-bold"=>idx < 3) %>'>
+        <% leaders.each do |leader| %>
+            <div class='<%= class_string("col-12"=>true, "font-weight-bold"=>leader["position"] <= 3) %>'>
                 <div class="row">
-                    <div class="col-1 mr-1 text-nowrap"><%= (idx + 1).ordinalize %></div>
-                    <div class="col"><%= leader %></div>
+                    <div class="col-1 mr-1 text-nowrap"><%= leader["position"].ordinalize %></div>
+                    <div class="col"><%= leader["username"] %></div>
                 </div> 
             </div>
         <% end %>

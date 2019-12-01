@@ -26,13 +26,13 @@
             <% if @user && @user.is_admin %>
                 <li class="nav-item small text-uppercase">
                     <%= link_to 'Show Winners', 
-                        audit_question_path(id: 1),
+                        detect_winning_people_path,
                         data: { confirm: "Are you sure you want to do this?"},
                         class: "nav-link"%>
                 </li>
                 <li class="nav-item small text-uppercase">
                     <%= link_to 'Show Winning Team', 
-                        audit_question_path(id: 1),
+                        detect_winning_team_path,
                         data: { confirm: "Are you sure you want to do this?"},
                         class: "nav-link"%>
                 </li>
