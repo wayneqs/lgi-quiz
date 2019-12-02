@@ -53,3 +53,6 @@ gem 'jquery-rails'
 
 # charting
 gem 'chartkick'
+
+# Redis
+gem 'redis'
