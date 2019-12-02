@@ -33,7 +33,7 @@ RUN bundle config --global frozen 1 \
 
 # Install yarn packages
 COPY package.json yarn.lock .yarnclean /app/
-RUN yarn install
+RUN yarn install --check-files
 
 # Add the Rails app
 ADD . /app
