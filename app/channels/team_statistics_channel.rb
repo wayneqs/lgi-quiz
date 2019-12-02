@@ -9,6 +9,6 @@ class TeamStatisticsChannel < ApplicationCable::Channel
 
   def self.broadcast_stats()
     ActionCable.server.broadcast "team_statistics", 
-      json: Quiz.joins(:user).group('users.team').sum(:score)
+      json: Quiz.joins(:user).group('users.team').average(:score)
   end
 end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :ensure_user_signed_up, except: [:destroy]
+    before_action :ensure_signed_up_user_can_only_delete_account, except: [:destroy]
 
     def signin
         respond_to do |format|
@@ -53,5 +54,9 @@ class UsersController < ApplicationController
                 end
             end
         end
+    end
+
+    def ensure_signed_up_user_can_only_delete_account
+        redirect_to stats_path if @user
     end
 end

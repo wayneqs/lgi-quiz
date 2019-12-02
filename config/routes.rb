@@ -20,7 +20,4 @@ Rails.application.routes.draw do
 
   get "stats", to: "stats#index", as: "stats"
   get "charts/team_stats", to: "charts#team_stats", as: "team_stats_charts"
-
-  get "winner_detector/people", to: "winner_detector#people", as: "detect_winning_people"
-  get "winner_detector/team", to: "winner_detector#team", as: "detect_winning_team"
 end
