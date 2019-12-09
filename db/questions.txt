@@ -68,7 +68,7 @@ What are three key benefits of Cloud Computing?
 Easy to manage, No need to write to Code, Cost Saving
 On-Demand Service, Pay-as-you-Go, Highly Scalable|3
 No need to manage Security, Easy Consumption, Less cost|0
-IT Skills not required, Easy to Deploy, Lest cost|0
+IT skills not required, Easy to Deploy, Less cost|0
 
 What are the main cloud service providers used in LGI?
 IBM Soft Layer, Google Cloud Platform, Microsoft Azure|2
