@@ -39,11 +39,13 @@
                     <div class="col actions">
                     <%= link_to "Previous Question",
                             audit_question_path(id: @previous), 
-                            class: class_string("btn btn-primary"=>true, "disabled"=>@previous_disabled) %>
+                            class: class_string("btn btn-primary"=>true, "disabled"=>@previous_disabled),
+                            data: { disable_with: "Getting previous..."} %>
 
                         <%= link_to "Next Question", 
                             audit_question_path(id: @next), 
-                            class: class_string("btn btn-primary"=>true, "disabled"=>@next_disabled) %>
+                            class: class_string("btn btn-primary"=>true, "disabled"=>@next_disabled),
+                            data: { disable_with: "Getting next..."} %>
                     </div>
                 </div>
             </div>
