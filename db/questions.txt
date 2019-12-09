@@ -1,0 +1,89 @@
+In the top right hand corner of Dave’s slides there was a cloud, what was different about the cloud on one of the slides?
+It was pink|3
+It was smaller|0
+It had the word “cloud” written in it|0
+It had a smiley face in it|0
+
+Which of the following was not on Dave’s candidate list for “re-imagining” as part of cloud migration?
+Reassurance|0
+Pricing|0
+Underwriting|0
+England Winning the World Cup|3
+
+What does IaaS generally refer to in Cloud Computing?
+Information as a Service|0
+Integration as a Service|0
+Infrastructure as a Service|3
+Inspiration as a Solution|0
+
+What is a public cloud?
+A cloud formation that can be seen across the globe|0
+A cloud service that can only be accessed from a publicly shared computer|0
+A multi-tenant cloud environment accessed over the internet|3
+A cloud environment owned, operated and controlled by a public company
+
+Why are LGI considering moving applications to the Cloud?
+Because Morgan says so...
+Because it will improve agility|3
+Because it is good to have cloud
+Because LGIM/LGR are already in the cloud
+
+What application did Dave say might be replaced with an off-the-shelf software package?
+Period Payment System|3
+Aura Back Office|0
+OTQ|0
+Payroll|0
+
+When are we most likely to take a so called lift-and-shift approach?
+To Migrate a Mainframe Application
+To Migrate an application which can be decommissioned easily
+To Migrate a complex e-comm application|3
+To firm up our buttocks|0
+
+Which current application would benefit most from cloud scalability?
+OTQ|3
+CNBS
+MLWEB
+PPS
+
+How many policies will be migrated from Conventional Life systems to new Phoenix system?
+< 1 million|0
+< 2 million|0
+< 3 million|0
+< 4 million|3
+
+What are possible side effects of Cloud adoption?
+Decreased Development costs, Increased BAU run costs|3
+Increased Development costs, increased BAU run costs|0
+Happy developers|2
+None of the above|0
+
+What is a "hybrid" cloud?
+A blend of public and private cloud services with orchestration between them|3
+Cloud service deployed across multiple offices or locations
+A blend of private cloud and legacy on-premises hardware|2
+A blend of two public Cloud Services across multiple locations|0
+
+What are three key benefits of Cloud Computing?
+Easy to manage, No need to write to Code, Cost Saving
+On-Demand Service, Pay-as-you-Go, Highly Scalable|3
+No need to manage Security, Easy Consumption, Less cost|0
+IT Skills not required, Easy to Deploy, Lest cost|0
+
+What are the main cloud service providers used in LGI?
+IBM Soft Layer, Google Cloud Platform, Microsoft Azure|2
+IBM Soft Layer, Amazon Web Services, Microsoft Azure|3
+IBM Soft Layer, Oracle Cloud, Microsoft Azure|2
+IBM Soft Layer, Google Cloud Platform, Digital Ocean|2
+
+What are applications NOT owned by LGI that will be impacted by our cloud migration?
+GCD, Agent Index, SecAuth Gate|3
+GCD, OLPC, SecAuth Gate
+GCD, PADS,  SecAuth Gate
+GCD, Agent Index, Elixir
+
+Which of the below is a healthy combination for DevOps?
+Collaboration of Administration, Finance & Operations|0
+Collaboration of Business, Application Engineers & Infrastructure teams|3
+Collaboration of HR, Finance & Operations|0
+None of the Above|0
