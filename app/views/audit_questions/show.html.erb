@@ -1,4 +1,3 @@
-<% cache @question do %>
 <div class="row justify-content-sm-center">
     <div class="col-sm-10 col-md-10 p-3 mb-5 bg-secondary text-white rounded-lg shadow-lg">
         <div class="row">
@@ -19,37 +18,39 @@
                         <p class="text-warning mb-1"><%= @ordinal %> of <%= @count %></p>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col">
-                        <h4><%= @question.prompt %></h4>
+                <% cache @question do %>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h4><%= @question.prompt %></h4>
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-4">
-                    <div class="col">
-                        <ol type="A">
-                            <% @question.question_options.each_with_index do |option, idx| %>
-                                <li class="mb-3 pl-2">
-                                    <%= option.prompt %>
-                                </li>
-                            <% end %>
-                        </ol>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <ol type="A">
+                                <% @question.question_options.each_with_index do |option, idx| %>
+                                    <li class="mb-3 pl-2">
+                                        <%= option.prompt %>
+                                    </li>
+                                <% end %>
+                            </ol>
+                        </div>
                     </div>
-                </div>
+                <% end %>
+
                 <div class="row">
                     <div class="col actions">
                     <%= link_to "Previous Question",
                             audit_question_path(id: @previous), 
                             class: class_string("btn btn-primary"=>true, "disabled"=>@previous_disabled),
-                            data: { disable_with: "Getting previous..."} %>
+                            data: { disable_with: "Previous Question"} %>
 
                         <%= link_to "Next Question", 
                             audit_question_path(id: @next), 
                             class: class_string("btn btn-primary"=>true, "disabled"=>@next_disabled),
-                            data: { disable_with: "Getting next..."} %>
+                            data: { disable_with: "Next Question"} %>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<% end %>
